@@ -1,0 +1,10 @@
+{
+  "name": "dockerfile-ss",
+  "version": "1.0.0",
+  "description": "Simple Node.js web server for Docker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Alex"
+}
