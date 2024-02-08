@@ -4,7 +4,8 @@
   "description": "Simple Node.js web server for Docker",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'No build step required'"
   },
-  "author": "Alex"
+  "author": "Alexandro"
 }

@@ -1,14 +1,19 @@
-# Указываем базовый образ
-FROM node:18-alpine
+# Этап сборки приложения
+FROM node:18-alpine AS builder
 
-# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем исходный код в рабочую директорию
-COPY . .
-
-# Устанавливаем зависимости
+COPY package.json package-lock.json ./
 RUN npm install
 
-# Команда для запуска приложения
+COPY . .
+RUN npm run build
+
+# Этап упаковки приложения
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app ./
+
 CMD ["node", "server.js"]
